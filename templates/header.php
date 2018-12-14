@@ -44,7 +44,7 @@
 
     <!-- Encabezado -->
     <div class="encabezado">
-        <h1 class="main-navbar-text">Examenes departamentales</h1>
+        <h1 class="main-navbar-text" style="display:inline">Examenes departamentales</h1>
     </div>
     <!-- /Encabezado -->
 
