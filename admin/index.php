@@ -67,39 +67,22 @@
                           <tr>
                             <th scope="col">id</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Modificar</th>
-                            <th scope="col">Eliminar</th>
+                            <th scope="col">Acciones</th>
                           </tr>
                         </thead>
                         <tbody id="filas">
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
+
                         </tbody>
                       </table>
                       <div class="paginador">
                         <ul id="paginas" style="list-style: none; ">
-                          <li><a href="#">|<<</a></li>
+
+                          <!--<li><a href="#">|<<</a></li>
                           <li><a href="#"><<</a></li>
                           <li class="pageSelected">1</li>
 
                           <li><a href="#">>></a></li>
-                          <li><a href="#">>>|</a></li>
+                          <li><a href="#">>>|</a></li>-->
                         </ul>
                       </div>
                  </div>
@@ -175,6 +158,27 @@
 
      </div>
 
+
+      <!-- Modal -->
+      <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Está seguro que desea borrar: <span id="dato"></span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" onclick="confirmDelete()">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
      <!--Moda de confirmacion-->
      <div class="modal fade" id="confirmacion">
          <div class="modal-dialog modal-dialog-centered">

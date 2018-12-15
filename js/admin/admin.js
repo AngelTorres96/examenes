@@ -1,9 +1,15 @@
+var a=0;
+var del;
+var name;
+
 $( document ).ready(function() {
+  $("#paginas").empty();
   verMaterias();
-  getPaginas();
+
 });
-//extrae la informacion del select y retorna una consulta con los investigadores
-//correspondientes a una linea
+
+
+
 function insertarMateria(){
   $.ajax({
     type: "POST",
@@ -11,10 +17,9 @@ function insertarMateria(){
     url: "../function/registrar_materia.php",
     timeout: 12000,
     data: $("#form").serialize(),
-    dataType: "json",
-    success: function(response)
+    success: function()
     {
-      alert("success");
+      alert("Materia cargada.");
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
@@ -22,26 +27,36 @@ function insertarMateria(){
   });
 }
 
-function verMaterias(){
+function verMaterias(p){
+  $("#filas").empty();
+  $("#paginas").empty();
+  if(p==null)p=1;
+  a=p;
   $.ajax({
     type: "GET",
     async: true,
     url: "../function/get_materias.php",
     timeout: 12000,
-
+    data:{pagina:p},
     dataType: "json",
     success: function(response)
     {
+      var i=0;
       $.each(response, function(key, value) {
           $("#filas").append(
             "<tr>"+
-              "<th scope='row'>1</th>"+
-              "<td>Mark</td>"+
-              "<td>Modificar</td>"+
-              "<td>Eliminar</td>"+
+              "<th scope='row'>"+ value.sub_id +"</th>"+
+              "<td>"+value.sub_name+"</td>"+
+              "<td>"+
+              "<a href='' onclick=''>Modificar</a>"+
+              "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
+              "</td>"+
             "</tr>"
           );
+          i++;
       });
+      getPaginas();
+
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
@@ -49,6 +64,7 @@ function verMaterias(){
   });
 }
 function getPaginas(){
+  $("#paginas").empty();
   $.ajax({
     type: "GET",
     async: true,
@@ -66,10 +82,39 @@ function getPaginas(){
         pag = parseInt(pag);
         pag++;
       }
-      for (var i = 0; i < pag; i++) {
-        $("#paginas").append("<li><a>i</a></li>");
+
+      for (var i = 0; i <= pag+1; i++) {
+        if(i==0)$("#paginas").append("<li onclick='verMaterias(1)'><a>|<<</a></li><li><a><<</a></li>");
+        else if(i==pag+1) $("#paginas").append("<li><a>>></a></li><li onclick='verMaterias("+pag+")'><a>>>|</a></li>");
+        else{
+          if(i==a) $("#paginas").append("<li class='pageSelected'>"+i+"</li>");
+          else $("#paginas").append("<li onclick='verMaterias("+i+")'><a>"+i+"</a></li>");
+        }
+
       }
 
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+
+function eliminarMateria(value){
+  $('#eliminar').modal('show');
+  $("#dato").append(value);
+  del = value;
+}
+function confirmDelete(){
+  $.ajax({
+    type: "GET",
+    async: true,
+    url: "../function/borrar_materia.php",
+    timeout: 12000,
+    data:{materia:del},
+    success: function()
+    {
+      alert("Materia eliminada");
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
