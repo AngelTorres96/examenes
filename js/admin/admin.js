@@ -1,5 +1,6 @@
 var a=0;
 var del;
+var mod;
 var name;
 
 $( document ).ready(function() {
@@ -48,7 +49,7 @@ function verMaterias(p){
               "<th scope='row'>"+ value.sub_id +"</th>"+
               "<td>"+value.sub_name+"</td>"+
               "<td>"+
-              "<a href='' onclick=''>Modificar</a>"+
+              "<a href='' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
               "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
               "</td>"+
             "</tr>"
@@ -99,7 +100,26 @@ function getPaginas(){
     }
   });
 }
+function modificarMateria(value){
+  $('#modificar').modal('show');
 
+}
+function confirmMod(){
+  $.ajax({
+    type: "GET",
+    async: true,
+    url: "../function/modificar_materia.php",
+    timeout: 12000,
+    data:{materia:del},
+    success: function()
+    {
+      alert("Materia eliminada");
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
 function eliminarMateria(value){
   $('#eliminar').modal('show');
   $("#dato").append(value);
