@@ -7,7 +7,7 @@
       header("Location: ../login.php");
       exit();
     }
-    $sql = mysqli_query($conn,"SELECT * FROM mst_user WHERE login = '$usuario' and pass ='$pass'");
+    $sql = mysqli_query($conn,"SELECT * FROM usuario WHERE login = '$usuario' and pass ='$pass'");
     if($row = mysqli_fetch_array($sql)){
       session_start();
       $_SESSION['usuario'] = $usuario;

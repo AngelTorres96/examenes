@@ -1,7 +1,7 @@
 <?php
   require_once("bdconexion.php");
   $id = $_GET['materia'];
-  $sql = "DELETE FROM mst_subject WHERE sub_id=$id";
+  $sql = "DELETE FROM materia WHERE idmateria=$id";
 
   $conn->query($sql);
 

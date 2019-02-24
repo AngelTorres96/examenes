@@ -4,7 +4,7 @@
      $info=[];
 
      try {
-       $sql_registe=$conn->query("SELECT COUNT(*) AS total_registro FROM mst_subject");
+       $sql_registe=$conn->query("SELECT COUNT(*) AS total_registro FROM materia");
        $result_register = $sql_registe->fetch_assoc();
        $total_registro = $result_register['total_registro'];
 
@@ -19,13 +19,13 @@
        $desde = ($pagina-1) * $por_pagina;
        $total_paginas = ceil($total_registro / $por_pagina);
 
-         $sql = "SELECT * FROM mst_subject ORDER BY sub_id ASC LIMIT $desde, $por_pagina";
+         $sql = "SELECT * FROM materia ORDER BY idmateria ASC LIMIT $desde, $por_pagina";
 
          if ($datos = $conn->query($sql)) {
              while ($dato=$datos->fetch_assoc()) {
                  $informacion=array(
-                   'sub_id'=>utf8_encode($dato['sub_id']),
-                   'sub_name'=>utf8_encode($dato['sub_name'])
+                   'sub_id'=>utf8_encode($dato['idmateria']),
+                   'sub_name'=>utf8_encode($dato['nombre'])
                  );
                  $info[]=$informacion;
              }
