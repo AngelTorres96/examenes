@@ -38,6 +38,10 @@
              <a class="nav-link list-group-item-action" id="investigadores-tab" data-toggle="tab" href="#investigadores"
                  role="tab" aria-controls="profile" aria-selected="false">Examenes</a>
          </li>
+         <li class="nav-item">
+             <a class="nav-link list-group-item-action" id="profesores-tab" data-toggle="tab" href="#profesores"
+                 role="tab" aria-controls="profile" aria-selected="false">Profesores</a>
+         </li>
          <li class="nav-item"><a class="nav-link list-group-item-action" href='../function/cerrar.php'>Salir</a></li>
      </ul>
 
@@ -156,6 +160,50 @@
            </div>
          </div>
 
+         <div class="tab-pane fade" id="profesores" role="tabpanel" aria-labelledby="profesores-tab">
+             <div class="row">
+
+                 <div class="col-lg-12">
+                     <form class="form-inline">
+                         <div class="form-group" style="margin:1%;">
+                             <label for="in_palabra_proyecto">Filtros:</label>
+                             <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
+                             <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3">Buscar</button>
+                         </div>
+                     </form>
+                     <br>
+                     <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody id="filas">
+
+                        </tbody>
+                      </table>
+                      <div class="paginador">
+                        <ul id="paginas" style="list-style: none; ">
+
+                          <!--<li><a href="#">|<<</a></li>
+                          <li><a href="#"><<</a></li>
+                          <li class="pageSelected">1</li>
+
+                          <li><a href="#">>></a></li>
+                          <li><a href="#">>>|</a></li>-->
+                        </ul>
+                      </div>
+                 </div>
+             </div>
+             <div class="container" style="margin-top:1em;">
+                 <div id="contenedor_proyectos" class="row">
+
+                 </div>
+             </div>
+         </div>
      </div>
 
 
@@ -369,7 +417,7 @@
 
      <script src="../js/jquery-3.3.1.min.js"></script>
      <script src="../js/bootstrap.min.js"></script>
-
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
      <script src="../js/admin/admin.js"></script>
  </body>
 
