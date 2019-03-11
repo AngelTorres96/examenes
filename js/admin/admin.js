@@ -3,6 +3,7 @@ var del;
 var mod;
 var name;
 
+
 $( document ).ready(function() {
   $("#paginas").empty();
   verMaterias();
@@ -135,6 +136,42 @@ function confirmDelete(){
     success: function()
     {
       alert("Materia eliminada");
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+
+function buscarMateria(){
+  $("#filas").empty();
+  $("#paginas").empty();
+  var t = $("#in_palabra_proyecto").val();
+  var fun="buscar";
+  $.ajax({
+    type: "POST",
+    async: true,
+    url: "../function/materias.php",
+    timeout: 12000,
+    data:{func:fun,nombre:t,id:3},
+    dataType: "json",
+    success: function(response)
+    {
+      var i=0;
+      $.each(response, function(key, value) {
+          $("#filas").append(
+            "<tr>"+
+              "<th scope='row'>"+ value.sub_id +"</th>"+
+              "<td>"+value.sub_name+"</td>"+
+              "<td>"+
+              "<a href='' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
+              "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
+              "</td>"+
+            "</tr>"
+          );
+          i++;
+      });
+
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);

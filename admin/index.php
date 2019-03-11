@@ -17,6 +17,9 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="../css/bootstrap.min.css">
      <!--<link rel="stylesheet" href="../css/administracion.css">-->
+     <script src="sweetalert2.all.min.js"></script>
+      <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+      <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
      <link rel="stylesheet" href="../css/main.css">
      <title>Administración</title>
  </head>
@@ -62,7 +65,7 @@
                          <div class="form-group" style="margin:1%;">
                              <label for="in_palabra_proyecto">Filtros:</label>
                              <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
-                             <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3">Buscar</button>
+                             <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3" onclick="buscarMateria()">Buscar</button>
                          </div>
                      </form>
                      <br>
