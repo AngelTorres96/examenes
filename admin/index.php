@@ -17,9 +17,8 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="../css/bootstrap.min.css">
      <!--<link rel="stylesheet" href="../css/administracion.css">-->
-     <script src="sweetalert2.all.min.js"></script>
-      <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
-      <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+
      <link rel="stylesheet" href="../css/main.css">
      <title>Administración</title>
  </head>
@@ -72,7 +71,7 @@
                      <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">id</th>
+
                             <th scope="col">Nombre</th>
                             <th scope="col">Acciones</th>
                           </tr>
@@ -241,15 +240,16 @@
               </button>
             </div>
             <div class="modal-body">
-              <form class="" action="index.html" method="post">
-                <input type="text" name="" value="">
-                <input type="text" name="" value="">
+              <form class="">
+                <p>Nuevo nombre</p>
+                <input class="form-control" id="nuevo_nombre" type="text" name="nombre" value="">
+
 
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" onclick="confirmDelete()">Aceptar</button>
+              <button type="button" class="btn btn-primary" onclick="actualizarMateria()">Aceptar</button>
             </div>
           </div>
         </div>

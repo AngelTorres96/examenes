@@ -1,5 +1,6 @@
 var a=0;
 var del;
+var upd;
 var mod;
 var name;
 
@@ -47,10 +48,10 @@ function verMaterias(p){
       $.each(response, function(key, value) {
           $("#filas").append(
             "<tr>"+
-              "<th scope='row'>"+ value.sub_id +"</th>"+
+
               "<td>"+value.sub_name+"</td>"+
               "<td>"+
-              "<a href='' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
+              "<a href='#' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
               "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
               "</td>"+
             "</tr>"
@@ -103,6 +104,7 @@ function getPaginas(){
 }
 function modificarMateria(value){
   $('#modificar').modal('show');
+  upd=value;
 
 }
 function confirmMod(){
@@ -162,15 +164,37 @@ function buscarMateria(){
           $("#filas").append(
             "<tr>"+
               "<th scope='row'>"+ value.sub_id +"</th>"+
-              "<td>"+value.sub_name+"</td>"+
+
               "<td>"+
-              "<a href='' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
+              "<a href='#' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
               "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
               "</td>"+
             "</tr>"
           );
           i++;
       });
+
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+document.getElementById("tbn_refrescar_filtros_proyectos").addEventListener("click", function(){
+
+});
+function actualizarMateria(){
+  
+  var t = $("#nuevo_nombre").val();
+  var fun="actualizar";
+  $.ajax({
+    type: "POST",
+    async: true,
+    url: "../function/materias.php",
+    timeout: 12000,
+    data:{func:fun,nombre:t,id:upd},
+    success: function(response)
+    {
 
     },
     error: function(jqXHR, textStatus, errorThrown){

@@ -4,9 +4,10 @@
 $nombre = $_POST['nombre'];
 
 function actualizar_materia($nombre){
+  require_once("bdconexion.php");
   $id = $_POST['id'];
-  if($conn->query("UPDATE materia SET nombre=$nombre WHERE idmateria=$id")){
-    $msg['msg'] = "Materia insertada correctamente";
+  if($conn->query("UPDATE materia SET nombre='$nombre' WHERE idmateria=$id")){
+    $msg['msg'] = "Materia actualizada correctamente";
     echo json_encode($msg);
   }
 }
@@ -31,7 +32,7 @@ switch ($_POST['func']) {
     buscar_materia($nombre);
     break;
   case 'actualizar':
-    actualizar_materia();
+    actualizar_materia($nombre);
     break;
   default:
     // code...
