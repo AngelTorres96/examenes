@@ -169,24 +169,63 @@
                      <form class="form-inline">
                          <div class="form-group" style="margin:1%;">
                              <label for="in_palabra_proyecto">Filtros:</label>
-                             <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
+                             <input id="busca_profe" type="text" placeholder="buscar" class="form-control mx-sm-3">
                              <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3">Buscar</button>
                          </div>
                      </form>
                      <br>
-                     <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Acciones</th>
-                          </tr>
-                        </thead>
-                        <tbody id="filas">
 
-                        </tbody>
-                      </table>
+
+                                          <div class="container">
+                                            <div class="row">
+                                              <div class="col-sm">
+                                                <div id="rbusqueda"></div>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-sm">
+                                                 Profesores candidatos
+                                                <table class="table">
+                                                   <thead>
+                                                     <tr>
+                                                       <th scope="col">id</th>
+                                                       <th scope="col">Nombre</th>
+                                                       <th scope="col">Correo</th>
+                                                       <th scope="col">Acciones</th>
+                                                     </tr>
+                                                   </thead>
+
+
+                                                   <tbody id="filas1">
+
+                                                   </tbody>
+                                                 </table>
+                                              </div>
+
+                                              <div class="col-sm">
+                                                Profesores autorizados
+                                                <table class="table">
+                                                   <thead>
+                                                     <tr>
+                                                       <th scope="col">id</th>
+                                                       <th scope="col">Nombre</th>
+                                                       <th scope="col">Correo</th>
+                                                       <th scope="col">Acciones</th>
+                                                     </tr>
+                                                   </thead>
+                                                   <tbody id="filas2">
+
+                                                   </tbody>
+                                                 </table>
+                                              </div>
+                                            </div>
+                                          </div>
+
+
+
+
+
+
                       <div class="paginador">
                         <ul id="paginas" style="list-style: none; ">
 

@@ -184,7 +184,7 @@ document.getElementById("tbn_refrescar_filtros_proyectos").addEventListener("cli
 
 });
 function actualizarMateria(){
-  
+
   var t = $("#nuevo_nombre").val();
   var fun="actualizar";
   $.ajax({
@@ -202,3 +202,85 @@ function actualizarMateria(){
     }
   });
 }
+
+
+
+//Recargar consulta de profesores en index
+
+setInterval(cons1,2000);
+  function cons1 (){
+    $.ajax({
+        url:"../function/funciones_profesores/consulta_na.php",
+        method: "POST",
+        dataType:"text",
+        success: function (data) {
+         const contenido=document.getElementById('filas1');
+         contenido.innerHTML=data;
+        }
+    });
+  }
+//Recargar consulta de profesores en index
+  setInterval(cons2,2000);
+    function cons2 (){
+      $.ajax({
+          url:"../function/funciones_profesores/consulta_sa.php",
+          method: "POST",
+          dataType:"text",
+          success: function (data) {
+           const contenido=document.getElementById('filas2');
+           contenido.innerHTML=data;
+          }
+      });
+    }
+
+
+
+    function acepar_profe(ide){
+     $.ajax({
+         url:"../function/funciones_profesores/profesor_aceptar.php?mi_id="+ide,
+         method: "GET",
+         dataType:"text",
+         success: function (data) {
+          const contenido=document.getElementById('filas2');
+          contenido.innerHTML=data;
+         }
+     });
+       $("#rbusqueda").html("");
+
+
+    }
+
+    function rechazar_profe(ide){
+     $.ajax({
+         url:"../function/funciones_profesores/profesor_rechazar.php?mi_id="+ide,
+         method: "GET",
+         dataType:"text",
+         success: function (data) {
+          const contenido=document.getElementById('filas2');
+          contenido.innerHTML=data;
+         }
+     });
+     $("#rbusqueda").html("");
+
+    }
+
+    $(document).ready(function(){
+    $("#busca_profe").keypress(busqueda);
+    function busqueda(){
+      var texto = document.getElementById('busca_profe').value;
+      var contenido = {
+        "texto" : texto
+      };
+
+      $.ajax({
+          data: contenido,
+          url:"../function/funciones_profesores/buscar_profesor.php",
+          type: "POST",
+          success: function (response) {
+            $("#rbusqueda").html(response);
+
+          }
+      });
+    }
+
+    });
