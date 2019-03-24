@@ -27,12 +27,30 @@ function buscar_materia($nombre){
   }
 }
 
+function llenar_select(){
+  require_once("bdconexion.php");
+  $sql = "SELECT * FROM materia";
+  if ($datos = $conn->query($sql)) {
+      while ($dato=$datos->fetch_assoc()) {
+          $informacion=array(
+            'sub_id'=>utf8_encode($dato['idmateria']),
+            'sub_name'=>utf8_encode($dato['nombre'])
+          );
+          $info[]=$informacion;
+      }
+      echo json_encode($info);
+  }
+}
+
 switch ($_POST['func']) {
   case 'buscar':
     buscar_materia($nombre);
     break;
   case 'actualizar':
     actualizar_materia($nombre);
+    break;
+  case 'llenar':
+    llenar_select();
     break;
   default:
     // code...

@@ -1,5 +1,9 @@
 <?php
+  require_once("bdconexion.php");
   $materia = $_POST['materia'];
-  $sql = "INSERT INTO mst_test VALUES ()";
+  $nombre = $_POST['nombre'];
+  $sql = "INSERT INTO examen (nombre, idmateria) VALUES ('$nombre', '$materia')";
+  $conn->query($sql);
+
 
  ?>

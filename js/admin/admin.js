@@ -8,7 +8,8 @@ var name;
 $( document ).ready(function() {
   $("#paginas").empty();
   verMaterias();
-
+  verExamenes();
+  llenar_select_materias();
 });
 
 
@@ -23,6 +24,23 @@ function insertarMateria(){
     success: function()
     {
       alert("Materia cargada.");
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+
+function insertarExamen(){
+  $.ajax({
+    type: "POST",
+    async: true,
+    url: "../function/registrar_examen.php",
+    timeout: 12000,
+    data: $("#agregar_examen").serialize(),
+    success: function()
+    {
+      alert("Examen cargado.");
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
@@ -66,6 +84,44 @@ function verMaterias(p){
     }
   });
 }
+
+function verExamenes(){
+  $("#filas").empty();
+  // $("#paginas").empty();
+  // if(p==null)p=1;
+  // a=p;
+  $.ajax({
+    type: "GET",
+    async: true,
+    url: "../function/get_examenes.php",
+    timeout: 12000,
+    // data:{pagina:p},
+    dataType: "json",
+    success: function(response)
+    {
+      var i=0;
+      $.each(response, function(key, value) {
+          $("#table_examenes").append(
+            "<tr>"+
+              "<th scope='row'>" + value.sub_id + "</th>" +
+              "<td>"+value.sub_name+"</td>"+
+              "<td>" + value.sub_materia + "</td>" +
+              "<td> <a href='#'>Ver Preguntas</a> </td>" +
+              "<td> <a href='#'>Modificar</a> </td>" +
+              "<td> <a href='#' id='examen_" + value.sub_id + "' onclick='eliminarExamen(" + value.sub_id + ")'>Eliminar</a> </td>" +
+            "</tr>"
+          );
+          i++;
+      });
+      // getPaginas();
+
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+
 function getPaginas(){
   $("#paginas").empty();
   $.ajax({
@@ -128,6 +184,13 @@ function eliminarMateria(value){
   $("#dato").append(value);
   del = value;
 }
+
+function eliminarExamen(value){
+  $('#eliminar_examen').modal('show');
+  $("#dato_examen").append(value);
+  del = value;
+}
+
 function confirmDelete(){
   $.ajax({
     type: "GET",
@@ -138,6 +201,23 @@ function confirmDelete(){
     success: function()
     {
       alert("Materia eliminada");
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}
+
+function confirmDeleteExamen(){
+  $.ajax({
+    type: "GET",
+    async: true,
+    url: "../function/borrar_examen.php",
+    timeout: 12000,
+    data:{examen:del},
+    success: function()
+    {
+      alert("Examen eliminado");
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
@@ -262,6 +342,33 @@ setInterval(cons1,2000);
      });
      $("#rbusqueda").html("");
 
+    }
+
+    function llenar_select_materias(){
+      var fun="llenar";
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: true,
+        url: "../function/materias.php",
+        timeout: 12000,
+        data:{func:fun},
+        success: function(response)
+        {
+          var i=0;
+          $.each(response, function(key, value) {
+              $("#select_materias").append($('<option>', {
+                value: value.sub_id,
+                text: value.sub_name
+              })
+              );
+              i++;
+          });
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          console.log(errorThrown);
+        }
+      });
     }
 
     $(document).ready(function(){
