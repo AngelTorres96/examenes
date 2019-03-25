@@ -23,7 +23,7 @@
                 <li class="sidebar-brand">
                     <a class="nav-item nav-link" href="index.php"><i class="fas fa-home"></i></a>
                 </li>
-                <li>
+                <!--<li>
                     <a href="proyectos_linea.php">Proyectos</a>
                 </li>
                 <li>
@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <a href="anuncios.php">Anuncios</a>
-                </li>
+                </li>-->
                 <li>
                 </li>
             </ul>
