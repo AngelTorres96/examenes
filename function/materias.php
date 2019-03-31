@@ -1,10 +1,11 @@
 <?php
 
 
-$nombre = $_POST['nombre'];
 
-function actualizar_materia($nombre){
+
+function actualizar_materia(){
   require_once("bdconexion.php");
+  $nombre = $_POST['nombre'];
   $id = $_POST['id'];
   if($conn->query("UPDATE materia SET nombre='$nombre' WHERE idmateria=$id")){
     $msg['msg'] = "Materia actualizada correctamente";
@@ -12,8 +13,9 @@ function actualizar_materia($nombre){
   }
 }
 
-function buscar_materia($nombre){
+function buscar_materia(){
   require_once("bdconexion.php");
+  $nombre = $_POST['nombre'];
   $sql = "SELECT * FROM materia WHERE nombre LIKE '%$nombre%'";
   if ($datos = $conn->query($sql)) {
       while ($dato=$datos->fetch_assoc()) {
@@ -44,10 +46,10 @@ function llenar_select(){
 
 switch ($_POST['func']) {
   case 'buscar':
-    buscar_materia($nombre);
+    buscar_materia();
     break;
   case 'actualizar':
-    actualizar_materia($nombre);
+    actualizar_materia();
     break;
   case 'llenar':
     llenar_select();

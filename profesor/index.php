@@ -19,84 +19,98 @@
 
 
      <link rel="stylesheet" href="../css/main.css">
-     <title>Administración</title>
+     <title>Profesor</title>
  </head>
 
  <body style="background: #f8f8f8">
 
      <!--Barra superior-->
      <div style="background: rgb(27, 57, 106); height: 4em; display: flex; justify-content: center; align-items: center;">
-         <h1 style="color:#f8f8f8">Administracion</h1>
+         <h1 style="color:#f8f8f8">Profesor</h1>
      </div>
 
      <!--Navegacion de secciones-->
      <ul class="nav nav-tabs sticky-top" id="myTab" role="tablist" style="background: #f0f0f0;">
          <li class="nav-item">
              <a class="nav-link active list-group-item-action" id="proyectos-tab" data-toggle="tab" href="#proyectos"
-                 role="tab" aria-controls="home" aria-selected="false">Materias</a>
+                 role="tab" aria-controls="home" aria-selected="false">Examenes</a>
          </li>
          <li class="nav-item">
              <a class="nav-link list-group-item-action" id="investigadores-tab" data-toggle="tab" href="#investigadores"
-                 role="tab" aria-controls="profile" aria-selected="false">Examenes</a>
+                 role="tab" aria-controls="profile" aria-selected="false">Grupos</a>
          </li>
-         <li class="nav-item">
-             <a class="nav-link list-group-item-action" id="profesores-tab" data-toggle="tab" href="#profesores"
-                 role="tab" aria-controls="profile" aria-selected="false">Profesores</a>
-         </li>
+
          <li class="nav-item"><a class="nav-link list-group-item-action" href='../function/cerrar.php'>Salir</a></li>
      </ul>
 
      <!--seccion de gestion-->
-     <div class="tab-content" id="myTabContent" style="margin-top:1em;">
+     <div class="tab-content" id="myTabContent" style="margin-top:1em; margin-left: 2em; margin-right: 2em;">
          <!--Seccion de proyectos-->
          <div class="tab-pane fade show active" id="proyectos" role="tabpanel" aria-labelledby="proyectos-tab">
              <div class="row">
-                 <div class="col-lg-4">
+                 <div class="col-md-3">
                    <form class="formulario" id="form" method="post">
-                     <p>Nombre de la materia: </p>
-                     <input type="text" class="form-control" name="materia" value="" placeholder="Nombre"><br><br>
-                     <button class="btn" name="login" onclick="insertarMateria()">Agregar</button>
+                     <p>Seleccione un examen </p>
+                     <select class="form-control">
+                       <option>1</option>
+                       <option>2</option>
+                       <option>3</option>
+                       <option>4</option>
+                     </select>
+                     <br>
+                     <button class="btn" name="login" onclick="">Agregar</button>
                    </form>
                  </div>
-                 <div class="col-lg-8">
-                     <form class="form-inline">
-                         <div class="form-group" style="margin:1%;">
-                             <label for="in_palabra_proyecto">Filtros:</label>
-                             <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
-                             <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3" onclick="buscarMateria()">Buscar</button>
-                         </div>
-                     </form>
-                     <br>
-                     <table class="table">
-                        <thead>
-                          <tr>
+                 <div class="col-md-9">
 
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Acciones</th>
-                          </tr>
-                        </thead>
-                        <tbody id="filas">
+                     <div class="tab">
+                        <button id="default" class="tablinks" onclick="openQuestion(event, 'Q1')">Pregunta 1</button>
+                        <button class="tablinks" onclick="openQuestion(event, 'Q2')">Pregunta 2</button>
+                        <button class="tablinks" onclick="openQuestion(event, 'Q3')">Pregunta 3</button>
+                        <button class="tablinks" onclick="add_question()">Agregar Pregunta</button>
 
-                        </tbody>
-                      </table>
-                      <div class="paginador">
-                        <ul id="paginas" style="list-style: none; ">
-
-                          <!--<li><a href="#">|<<</a></li>
-                          <li><a href="#"><<</a></li>
-                          <li class="pageSelected">1</li>
-
-                          <li><a href="#">>></a></li>
-                          <li><a href="#">>>|</a></li>-->
-                        </ul>
                       </div>
-                 </div>
-             </div>
-             <div class="container" style="margin-top:1em;">
-                 <div id="contenedor_proyectos" class="row">
+
+                      <div id="Q1" class="tabcontent">
+                        <h3>Pregunta 1</h3>
+                        <p>Ingresa la pregunta.</p>
+                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
+                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
+                        <button class="btn" style="float:left" onclick="eliminar_pregunta()">Borrar</button>
+                      </div>
+
+                      <div id="Q2" class="tabcontent">
+                        <h3>Pregunta 2</h3>
+                        <p>Ingresa la pregunta.</p>
+                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
+                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
+                      </div>
+
+                      <div id="Q3" class="tabcontent">
+                        <h3>Pregunta 3</h3>
+                        <p>Ingresa la pregunta.</p>
+                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
+                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
+                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
+                      </div>
 
                  </div>
              </div>
+             <br>
          </div>
 
          <!--Seccion de investigadores-->
@@ -459,7 +473,7 @@
      <script src="../js/jquery-3.3.1.min.js"></script>
      <script src="../js/bootstrap.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-     <script src="../js/admin/admin.js"></script>
+     <script src="../js/profesor.js"></script>
  </body>
 
  </html>
