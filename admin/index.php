@@ -37,10 +37,6 @@
                  role="tab" aria-controls="home" aria-selected="false">Materias</a>
          </li>
          <li class="nav-item">
-             <a class="nav-link list-group-item-action" id="investigadores-tab" data-toggle="tab" href="#investigadores"
-                 role="tab" aria-controls="profile" aria-selected="false">Examenes</a>
-         </li>
-         <li class="nav-item">
              <a class="nav-link list-group-item-action" id="profesores-tab" data-toggle="tab" href="#profesores"
                  role="tab" aria-controls="profile" aria-selected="false">Profesores</a>
          </li>
@@ -101,53 +97,7 @@
          </div>
 
          <!--Seccion de investigadores-->
-         <div class="tab-pane fade" id="investigadores" role="tabpanel" aria-labelledby="investigadores-tab">
-              <div class="row">
-                  <div class="col-lg-4">
-                    <form class="formulario" id="agregar_examen" method="post">
-                      <p>Nombre del examen: </p>
-                      <input type="text" class="form-control" name="nombre" value="" placeholder="Nombre"><br>
-                      <p>Materia:</p>
-                      <select class="form-control" id="select_materias" name="materia"> <br><br>
-                        <option value="" disabled selected>Elige una opción</option>
-                      </select>
-                      <br>
-                      <button type="submit" class="btn btn-primary" onclick="insertarExamen()" name="login">Agregar</button>
-                    </form>
-                  </div>
-                  <div class="col-lg-8">
-                      <form class="form-inline">
-                          <div class="form-group" style="margin:1%;">
-                              <label for="in_palabra_proyecto">Filtros:</label>
-                              <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
-                              <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3">Buscar</button>
-                          </div>
-                      </form>
-                      <br>
-                      <table class="table">
-                         <thead class="">
-                           <tr>
-                             <th scope="col">id</th>
-                             <th scope="col">Nombre</th>
-                             <th scope="col">Materia</th>
-                             <th scope="col">Preguntas</th>
-                             <th scope="col">Modificar</th>
-                             <th scope="col">Eliminar</th>
-                           </tr>
-                         </thead>
-                         <tbody id="table_examenes">
 
-                         </tbody>
-                       </table>
-                  </div>
-              </div>
-
-           <div class="container" style="margin-top:1em;">
-               <div id="contenedor_proyectos" class="row">
-
-               </div>
-           </div>
-         </div>
 
          <div class="tab-pane fade" id="profesores" role="tabpanel" aria-labelledby="profesores-tab">
              <div class="row">

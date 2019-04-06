@@ -36,6 +36,10 @@
                  role="tab" aria-controls="home" aria-selected="false">Examenes</a>
          </li>
          <li class="nav-item">
+             <a class="nav-link list-group-item-action" id="registrarexamen-tab" data-toggle="tab" href="#registrarexamen"
+                 role="tab" aria-controls="profile" aria-selected="false">Registrar Examenes</a>
+         </li>
+         <li class="nav-item">
              <a class="nav-link list-group-item-action" id="investigadores-tab" data-toggle="tab" href="#investigadores"
                  role="tab" aria-controls="profile" aria-selected="false">Grupos</a>
          </li>
@@ -114,13 +118,17 @@
          </div>
 
          <!--Seccion de investigadores-->
-         <div class="tab-pane fade" id="investigadores" role="tabpanel" aria-labelledby="investigadores-tab">
+         <div class="tab-pane fade" id="registrarexamen" role="tabpanel" aria-labelledby="investigadores-tab">
            <div class="row">
                <div class="col-lg-4">
-                 <form class="formulario" action="" method="post">
+                 <form class="formulario" id="agregar_examen" action="" method="post">
                    <p>Nombre del examen: </p>
-                   <input type="text" class="form-control" name="examen" value="" placeholder="Nombre"><br><br>
-                   <button type="submit" class="btn" name="login">Agregar</button>
+                   <input type="text" class="form-control" name="nombre" value="" placeholder="Nombre"><br>
+                   <p>Materia:</p>
+                   <select class="form-control" name="materia" id="select_materias">
+                    <option value="" disabled>Elige una opcion</option>
+                  </select> <br>
+                   <button type="submit" class="btn" onclick="insertarExamen()" name="login">Agregar</button>
                  </form>
                </div>
                <div class="col-lg-8">
@@ -135,39 +143,64 @@
                    <table class="table">
                       <thead class="">
                         <tr>
-                          <th scope="col">id</th>
                           <th scope="col">Nombre</th>
-                          <th scope="col">Preguntas</th>
-                          <th scope="col">Modificar</th>
+                          <th scope="col">Materia</th>
                           <th scope="col">Eliminar</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Eliminar</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Eliminar</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Eliminar</td>
-                        </tr>
+                      <tbody id="table_examenes">
                       </tbody>
                     </table>
                </div>
            </div>
+           <div class="container" style="margin-top:1em;">
+               <div id="contenedor_proyectos" class="row">
+
+               </div>
+           </div>
+         </div>
+
+         <div class="tab-pane fade" id="investigadores" role="tabpanel" aria-labelledby="investigadores-tab">
+              <div class="row">
+                  <div class="col-lg-4">
+                    <form class="formulario" id="agregar_examen" method="post">
+                      <p>Nombre del examen: </p>
+                      <input type="text" class="form-control" name="nombre" value="" placeholder="Nombre"><br>
+                      <p>Materia:</p>
+                      <select class="form-control" id="select_materias" name="materia"> <br><br>
+                        <option value="" disabled selected>Elige una opción</option>
+                      </select>
+                      <br>
+                      <button type="submit" class="btn btn-primary" onclick="insertarExamen()" name="login">Agregar</button>
+                    </form>
+                  </div>
+                  <div class="col-lg-8">
+                      <form class="form-inline">
+                          <div class="form-group" style="margin:1%;">
+                              <label for="in_palabra_proyecto">Filtros:</label>
+                              <input id="in_palabra_proyecto" type="text" placeholder="buscar" class="form-control mx-sm-3">
+                              <button id="tbn_refrescar_filtros_proyectos" type="button" class="form-control mx-sm-3">Buscar</button>
+                          </div>
+                      </form>
+                      <br>
+                      <table class="table">
+                         <thead class="">
+                           <tr>
+                             <th scope="col">id</th>
+                             <th scope="col">Nombre</th>
+                             <th scope="col">Materia</th>
+                             <th scope="col">Preguntas</th>
+                             <th scope="col">Modificar</th>
+                             <th scope="col">Eliminar</th>
+                           </tr>
+                         </thead>
+                         <tbody id="table_examenes">
+
+                         </tbody>
+                       </table>
+                  </div>
+              </div>
+
            <div class="container" style="margin-top:1em;">
                <div id="contenedor_proyectos" class="row">
 
@@ -323,7 +356,28 @@
              </div>
          </div>
      </div>
-     <!--/Moda de confirmacion-->
+
+     <!-- Modal borrar examen -->
+     <div class="modal fade" id="eliminar_examen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+             Está seguro que desea borrar: <span id="dato_examen"></span>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+             <button type="button" class="btn btn-primary" onclick="confirmDeleteExamen()">Aceptar</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
 
      <!--Modal de nuevo proyecto-->
      <div class="modal fade" id="registrar_proyecto">
