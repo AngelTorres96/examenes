@@ -31,13 +31,14 @@
 
      <!--Navegacion de secciones-->
      <ul class="nav nav-tabs sticky-top" id="myTab" role="tablist" style="background: #f0f0f0;">
-         <li class="nav-item">
-             <a class="nav-link active list-group-item-action" id="proyectos-tab" data-toggle="tab" href="#proyectos"
-                 role="tab" aria-controls="home" aria-selected="false">Examenes</a>
-         </li>
+
          <li class="nav-item">
              <a class="nav-link list-group-item-action" id="registrarexamen-tab" data-toggle="tab" href="#registrarexamen"
                  role="tab" aria-controls="profile" aria-selected="false">Registrar Examenes</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link active list-group-item-action" id="proyectos-tab" data-toggle="tab" href="#proyectos"
+                 role="tab" aria-controls="home" aria-selected="false">Editar examenes</a>
          </li>
          <li class="nav-item">
              <a class="nav-link list-group-item-action" id="investigadores-tab" data-toggle="tab" href="#investigadores"
@@ -54,63 +55,47 @@
              <div class="row">
                  <div class="col-md-3">
                    <form class="formulario" id="form" method="post">
-                     <p>Seleccione un examen </p>
-                     <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                       <option>3</option>
-                       <option>4</option>
+                     <p>Seleccione una materia </p>
+                     <select id="select_materias_filter" class="form-control" onchange="llenar_select_examenes()">
+                       <option value="default"></option>
                      </select>
                      <br>
-                     <button class="btn" name="login" onclick="">Agregar</button>
+                     <p>Seleccione un examen </p>
+                     <select id="examenes" class="form-control" onchange="get_questions()">
+                      <option value="default"></option>
+                     </select>
+                     <br>
+
                    </form>
                  </div>
                  <div class="col-md-9">
 
-                     <div class="tab">
-                        <button id="default" class="tablinks" onclick="openQuestion(event, 'Q1')">Pregunta 1</button>
-                        <button class="tablinks" onclick="openQuestion(event, 'Q2')">Pregunta 2</button>
-                        <button class="tablinks" onclick="openQuestion(event, 'Q3')">Pregunta 3</button>
-                        <button class="tablinks" onclick="add_question()">Agregar Pregunta</button>
+                     <div  class="tab" style="overflow:auto;">
+
+                        <div id="preguntas" ><!--<button id="default" class="tablinks" onclick="openQuestion(event, 'Q1')">Pregunta 1</button>--></div>
+                        <div><button class="tablinks" onclick="add_question()">Agregar Pregunta</button></div>
+
 
                       </div>
-
-                      <div id="Q1" class="tabcontent">
-                        <h3>Pregunta 1</h3>
-                        <p>Ingresa la pregunta.</p>
-                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
-                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
-                        <button class="btn" style="float:left" onclick="eliminar_pregunta()">Borrar</button>
+                      <div id="seccion_pregunta">
+                        <!--<div id="Q1" class="tabcontent">
+                          <h3>Pregunta 1</h3>
+                          <p>Ingresa la pregunta.</p>
+                          <form id="pregunta1">
+                            <input type="text" placeholder="Pregunta 1" class="form-control"><br>
+                            <input type="text" placeholder="Respuesta 1" class="form-control"><br>
+                            <input type="text" placeholder="Respuesta 2" class="form-control"><br>
+                            <input type="text" placeholder="Respuesta 3" class="form-control"><br>
+                            <input type="text" placeholder="Respuesta 4" class="form-control"><br>
+                            <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
+                            <button class="btn btn-primary" style="float:right" onclick="guardar_pregunta(1)">Guardar</button>
+                            <button class="btn btn-danger" style="float:left" onclick="eliminar_pregunta(1)">Borrar</button>
+                          </form>
+                        </div>-->
                       </div>
 
-                      <div id="Q2" class="tabcontent">
-                        <h3>Pregunta 2</h3>
-                        <p>Ingresa la pregunta.</p>
-                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
-                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
-                      </div>
 
-                      <div id="Q3" class="tabcontent">
-                        <h3>Pregunta 3</h3>
-                        <p>Ingresa la pregunta.</p>
-                        <input type="text" placeholder="Pregunta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 1" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 2" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 3" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta 4" class="form-control"><br>
-                        <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
-                        <button class="btn" style="float:right" onclick="guardar_pregunta()">Guardar</button>
-                      </div>
+
 
                  </div>
              </div>
