@@ -1,43 +1,24 @@
-var a=0;
-var del;
-var mod;
-var name;
-
 $( document ).ready(function() {
-  $("#paginas").empty();
-  index();
+
 });
 
-function index(p){
-  $("#filas").empty();
-  $("#paginas").empty();
-  if(p==null)p=1;
-  a=p;
+function get_datos_sesion(){
+
+}
+function grupos(a){
+
   $.ajax({
-    type: "GET",
+    type: "POST",
     async: true,
-    url: "../function/get_carga.php",
+    url: "../function/alumnos/get_grupos.php",
     timeout: 12000,
-    data:{pagina:p},
+    data:{alumno:a},
     dataType: "json",
     success: function(response)
     {
-      var i=0;
       $.each(response, function(key, value) {
-          $("#filas").append(
-            "<tr>"+
-              "<th scope='row'>"+ value.sub_id +"</th>"+
-              "<td>"+value.sub_name+"</td>"+
-              "<td>"+
-              "<a href='' onclick='modificarMateria("+value.sub_id+")'>Modificar</a>"+
-              "|<a href='#' id='href"+value.sub_id+"' onclick='eliminarMateria("+value.sub_id+")'>Eliminar</a>"+
-              "</td>"+
-            "</tr>"
-          );
-          i++;
-      });
-      getPaginas();
 
+      });
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);

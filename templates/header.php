@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Examenes departamentales</title>
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-
-
-</head>
-
-<body>
+<header>
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <a id="menu_ocultar" href="#"><i class="fas fa-times"></i></a>
                 <li class="sidebar-brand">
-                    <a class="nav-item nav-link" href="index.php"><i class="fas fa-home"></i></a>
+                    <a class="nav-item nav-link" href="index.php"></a>
                 </li>
                 <li>
-                    <a href="proyectos_linea.php">Proyectos</a>
+                    <a href="#">Proyectos</a>
                 </li>
                 <li>
-                    <a href="investigador.php">Investigadores</a>
+                    <a href="#">Investigadores</a>
                 </li>
                 <li>
-                    <a href="congresos.php">Congresos</a>
+                    <a href="#">Congresos</a>
                 </li>
                 <li>
-                    <a href="anuncios.php">Anuncios</a>
+                    <a href="#">Anuncios</a>
                 </li>
                 <li>
                 </li>
@@ -55,12 +39,13 @@
         </button>
         <div class="collapse navbar-collapse">
             <div class="navbar-nav navegacion">
-                <a class="nav-item nav-link" href="index.php"><i class="fas fa-home"></i></a>
-                <a class="nav-item nav-link" href="proyectos_linea.php">Proyectos</a>
-                <a class="nav-item nav-link" href="investigador.php">Investigadores</a>
-                <a class="nav-item nav-link" href="congresos.php">Congresos</a>
-                <a class="nav-item nav-link" href="anuncios.php">Anuncios</a>
+                <a class="nav-item nav-link" href="index.php">Inicio</a>
+                <a class="nav-item nav-link" href="#">Realizar examen</a>
+                <a class="nav-item nav-link" href="#">Mis evaluaciones</a>
+                <a class="nav-item nav-link" href="#">Opciones</a>
+                <a class="nav-item nav-link" href="../function/alumnos/cerrar.php">Cerrar sesión</a>
             </div>
         </div>
     </nav>
     <!-- /Navbar-->
+<header>
