@@ -34,7 +34,7 @@
   <article>
 
   </article>
-  <aside  >
+  <aside>
     <h2>Mis materias</h2>
     <br>
   </aside>

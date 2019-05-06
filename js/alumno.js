@@ -13,12 +13,9 @@ function grupos(a){
     url: "../function/alumnos/get_grupos.php",
     timeout: 12000,
     data:{alumno:a},
-    dataType: "json",
     success: function(response)
     {
-      $.each(response, function(key, value) {
-
-      });
+        $("aside").append(response);
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
