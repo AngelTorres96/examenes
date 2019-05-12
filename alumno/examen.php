@@ -37,9 +37,10 @@
       <div class="tab" style="overflow:auto;">
         <div id="preguntas">
         </div>
-        <div id="seccion_pregunta">
 
-        </div>
+      </div>
+      <div id="seccion_pregunta">
+
       </div>
     </div>
   </div>

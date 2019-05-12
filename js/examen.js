@@ -44,7 +44,7 @@ function examen(a){
     success: function(response)
     {
         $("#preguntas").append(response);
-
+        document.getElementById("Q1").click();
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);
