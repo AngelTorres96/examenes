@@ -10,8 +10,6 @@
   	exit();
   }
 
-
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,24 +29,35 @@
 
 <body>
   <?php include_once "../templates/header.php"?>
-  <article id="mis_examenes" style="float:right;display:inline">
-    <h2>Mis examenes</h2>
-  </article>
-  <aside style="float:left;display:inline">
-    <h2>Mis grupos</h2>
-    <br>
-  </aside>
-  <footer></footer>
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/alumno.js"></script>
+  <br>
+  <div class="row">
 
+    <div class="col-md-10" style="margin:0 auto">
+
+      <div class="tab" style="overflow:auto;">
+        <div id="preguntas">
+        </div>
+        <div id="seccion_pregunta">
+
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="../js/examen.js"></script>
 </body>
 <script>
-      //obtenemos la variable de sesion
-      var myvar='<?php echo $session_value;?>';
-      console.log(myvar);
-      //llamamos al metodo get_datos para obtener todos los datos del alumno
-      grupos(myvar);
-   </script>
+    //obtenemos la variable de sesion
+    var myvar='<?php echo $session_value;?>';
+    //llamamos al metodo get_datos para obtener todos los datos del alumno
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("idex");
+    console.log(c);
+    examen(c);
+
+ </script>
 </html>

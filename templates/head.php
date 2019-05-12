@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Examenes departamentales</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 
 </head>
@@ -44,7 +44,7 @@
 
     <!-- Encabezado -->
     <div class="encabezado">
-        <h1 class="main-navbar-text" style="display:inline">Examenes departamentales</h1><a href="#" id="salir">Salir</a>
+        <h1 class="main-navbar-text" style="display:inline">Examenes departamentales</h1>
     </div>
     <!-- /Encabezado -->
 

@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 function actualizar_materia(){
   require_once("bdconexion.php");
   $nombre = $_POST['nombre'];

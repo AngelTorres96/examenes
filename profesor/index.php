@@ -37,7 +37,7 @@
                  role="tab" aria-controls="profile" aria-selected="false">Registrar Examenes</a>
          </li>
          <li class="nav-item">
-             <a class="nav-link active list-group-item-action" id="proyectos-tab" data-toggle="tab" href="#proyectos"
+             <a class="nav-link active list-group-item-action" id="proyectos-tab" data-toggle="tab" href="#preguntas_examen"
                  role="tab" aria-controls="home" aria-selected="false">Editar examenes</a>
          </li>
          <li class="nav-item">
@@ -51,7 +51,7 @@
      <!--seccion de gestion-->
      <div class="tab-content" id="myTabContent" style="margin-top:1em; margin-left: 2em; margin-right: 2em;">
          <!--Seccion de proyectos-->
-         <div class="tab-pane fade show active" id="proyectos" role="tabpanel" aria-labelledby="proyectos-tab">
+         <div class="tab-pane fade show active" id="preguntas_examen" role="tabpanel" aria-labelledby="proyectos-tab">
              <div class="row">
                  <div class="col-md-3">
                    <form class="formulario" id="form" method="post">
@@ -78,25 +78,8 @@
 
                       </div>
                       <div id="seccion_pregunta">
-                        <!--<div id="Q1" class="tabcontent">
-                          <h3>Pregunta 1</h3>
-                          <p>Ingresa la pregunta.</p>
-                          <form id="pregunta1">
-                            <input type="text" placeholder="Pregunta 1" class="form-control"><br>
-                            <input type="text" placeholder="Respuesta 1" class="form-control"><br>
-                            <input type="text" placeholder="Respuesta 2" class="form-control"><br>
-                            <input type="text" placeholder="Respuesta 3" class="form-control"><br>
-                            <input type="text" placeholder="Respuesta 4" class="form-control"><br>
-                            <input type="text" placeholder="Respuesta Correcta" class="form-control"><br>
-                            <button class="btn btn-primary" style="float:right" onclick="guardar_pregunta(1)">Guardar</button>
-                            <button class="btn btn-danger" style="float:left" onclick="eliminar_pregunta(1)">Borrar</button>
-                          </form>
-                        </div>-->
+
                       </div>
-
-
-
-
                  </div>
              </div>
              <br>

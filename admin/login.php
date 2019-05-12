@@ -1,5 +1,5 @@
 
-<?php include '../templates/header.php'; ?>
+<?php include '../templates/head.php'; ?>
 <div class="container">
   <div id="row">
   <div class="row">
@@ -24,3 +24,7 @@
   <br>
   </div>
 </div>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</html>

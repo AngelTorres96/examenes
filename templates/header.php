@@ -40,7 +40,6 @@
         <div class="collapse navbar-collapse">
             <div class="navbar-nav navegacion">
                 <a class="nav-item nav-link" href="index.php">Inicio</a>
-                <a class="nav-item nav-link" href="#">Realizar examen</a>
                 <a class="nav-item nav-link" href="#">Mis evaluaciones</a>
                 <a class="nav-item nav-link" href="#">Opciones</a>
                 <a class="nav-item nav-link" href="../function/alumnos/cerrar.php">Cerrar sesión</a>

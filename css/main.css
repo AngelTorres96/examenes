@@ -807,7 +807,16 @@ div.linea_proyecto button:hover {
 }
 /**/
 aside {
-  width: 300px;
+  width: 30%;
   margin-top:50px;
   margin-left: 0px;
+}
+article{
+  width: 70%;
+  margin-top:50px;
+  margin-left: 0px;
+}
+footer{
+
+  
 }
