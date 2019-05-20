@@ -11,11 +11,13 @@
       while($row = $sql_query->fetch_assoc()){
           $qty++;
           echo "<div id='Q" .$qty. "' class='tabcontent'>".
+            "<br>".
+            "<p>".$row["descripcion"]."</p>".
             "<form id='pregunta".$qty."'>".
-              "<input type='radio' name='radio' placeholder='Respuesta 1' class='form-control'>".$row["opc1"]."<br>".
-              "<input type='radio' name='radio' placeholder='Respuesta 2' class='form-control'>".$row["opc2"]."<br>".
-              "<input type='radio' name='radio' placeholder='Respuesta 3' class='form-control'>".$row["opc3"]."<br>".
-              "<input type='radio' name='radio' placeholder='Respuesta 4' class='form-control'>".$row["opc4"]."<br>".
+              "<input type='radio' name='radio'>".$row["opc1"]."<br>".
+              "<input type='radio' name='radio'>".$row["opc2"]."<br>".
+              "<input type='radio' name='radio'>".$row["opc3"]."<br>".
+              "<input type='radio' name='radio'>".$row["opc4"]."<br>".
               "<button class='btn btn-primary' style='float:right' onclick='guardar_pregunta(".$qty.")'>Guardar</button>".
             "</form>".
           "</div>" ;

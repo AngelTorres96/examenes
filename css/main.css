@@ -765,13 +765,22 @@ div.linea_proyecto button:hover {
 
 /* Style the tab */
 .tab {
+
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   width: 30%;
   height: 500px;
 }
-
+.tab1 {
+  float: left;
+  margin-left: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 350px;
+}
 /* Style the buttons that are used to open the tab content */
 .tab button {
   display: block;
@@ -812,11 +821,16 @@ aside {
   margin-left: 0px;
 }
 article{
-  width: 70%;
+  width: 65%;
   margin-top:50px;
   margin-left: 0px;
 }
 footer{
 
 
+}
+#mis_examenes{
+  margin-right: 15px;
+  margin-left: 15px;
+  float:right;
 }

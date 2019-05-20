@@ -70,12 +70,13 @@
                  </div>
                  <div class="col-md-9">
 
-                     <div  class="tab" style="overflow:auto;">
+                     <div class="tab" style="overflow:auto;">
 
-                        <div id="preguntas" ><!--<button id="default" class="tablinks" onclick="openQuestion(event, 'Q1')">Pregunta 1</button>--></div>
-                        <div><button class="tablinks" onclick="add_question()">Agregar Pregunta</button></div>
-
-
+                        <div id="preguntas">
+                        </div>
+                        <div>
+                          <button class="tablinks" onclick="add_question()">Agregar Pregunta</button>
+                        </div>
                       </div>
                       <div id="seccion_pregunta">
 
@@ -447,40 +448,7 @@
                              </ul>
                          </div>
                      </div>
-                     <!---
-                     <div class="row">
-                         <div class="form-group col-lg-6 col-md-12">
-                             <label for="select_publicaciones" class="font-weight-bold">Publicaciones</label>
-                             <select id="select_publicaciones" class="custom-select">
-                                 <option value="" selected>Linea</option>
-                                 <option value="1">One</option>
-                             </select>
-                         </div>
-                         <div class="form-group col-lg-6 col-md-12">
-                             <label for="lista_publicaciones" class="font-weight-bold">Publicaciones relacionadas</label>
-                             <ul id="lista_publicaciones" class="list-group">
-                                 <li class="list-group-item item list-group-item-success"">Dapibus ac facilisis in<button id="" tyle="
-                                     button" class="close" aria-hidden="true">&times;</button></li>
-                             </ul>
-                         </div>
-                     </div>
-                     <div class="row">
-                         <div class="form-group col-lg-6 col-md-12">
-                             <label for="select_congresos" class="font-weight-bold">Congresos</label>
-                             <select id="select_congresos" class="custom-select">
-                                 <option value="" selected>Linea</option>
-                                 <option value="1">One</option>
-                             </select>
-                         </div>
-                         <div class="form-group col-lg-6 col-md-12">
-                             <label for="lista_congresos" class="font-weight-bold">congresos relacionados</label>
-                             <ul id="lista_congresos" class="list-group">
-                                 <li class="list-group-item item list-group-item-success"">Dapibus ac facilisis in<button id="" tyle="
-                                     button" class="close" aria-hidden="true">&times;</button></li>
-                             </ul>
-                         </div>
-                     </div>
-                     -->
+
                  </div>
                  <!--Pie del modal-->
                  <div class="modal-footer">
@@ -494,8 +462,8 @@
 
      <script src="../js/jquery-3.3.1.min.js"></script>
      <script src="../js/bootstrap.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
      <script src="../js/profesor.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
  </body>
 
  </html>

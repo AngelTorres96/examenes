@@ -10,7 +10,7 @@
           echo "Sin Grupos";
       while($row = $sql_query->fetch_assoc()){
         $num = $row["idgrupo"];
-          echo "<div><button onclick='examen($num)'>" . $row["idg"]."</button></div>" ;
+          echo "<div><button class='tablinks' onclick='examen($num)'>" . $row["idg"]."</button></div>" ;
       }
   }
   catch(PDOException $e){

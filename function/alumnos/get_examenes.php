@@ -9,7 +9,7 @@
           echo "Sin Examenes";
       while($row = $sql_query->fetch_assoc()){
         $examen=$row["idex"];
-          echo "<div>" . $row["exn"]."<button onclick='realizar_examen($examen)'>Realizar prueba</button></div>" ;
+          echo "<div style='display:block'><p>" .$row["exn"]."<p><button class='form-control btn-primary' style='width:150px' onclick='realizar_examen($examen)'>Realizar prueba</button></div>" ;
       }
   }
   catch(PDOException $e){

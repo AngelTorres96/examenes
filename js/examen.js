@@ -51,3 +51,20 @@ function examen(a){
     }
   });
 }
+function guardar_pregunta(a){
+  
+  $.ajax({
+    type: "POST",
+    async: true,
+    url: "../function/alumnos/responder.php",
+    timeout: 12000,
+    data:{id:c,control:myvar,pregunta:a,resp:},
+    success: function(response)
+    {
+      alert(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  });
+}

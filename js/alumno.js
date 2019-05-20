@@ -34,7 +34,7 @@ function grupos(a){
     data:{alumno:a},
     success: function(response)
     {
-        $("aside").append(response);
+        $("#uigrupos").append(response);
     },
     error: function(jqXHR, textStatus, errorThrown){
       console.log(errorThrown);

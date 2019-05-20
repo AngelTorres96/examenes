@@ -31,12 +31,14 @@
 
 <body>
   <?php include_once "../templates/header.php"?>
-  <article id="mis_examenes" style="float:right;display:inline">
+  <article id="mis_examenes" style="float:right;">
     <h2>Mis examenes</h2>
   </article>
   <aside style="float:left;display:inline">
     <h2>Mis grupos</h2>
     <br>
+    <div class="tab tab1" id="uigrupos" style="overflow:auto;">
+    </div>
   </aside>
   <footer></footer>
   <script src="../js/jquery-3.3.1.min.js"></script>
