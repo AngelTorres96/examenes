@@ -12,15 +12,15 @@
      );
   }
   //finalmente destruimos la sesion*/
-  // remove all session variables
+  // removemos todas las variable
   session_unset();
 
-// destroy the session
+// destruye la sesion
   if(session_destroy()){
       echo session_status();
   } else {
       echo "Error al destruir la sesión";
   }
-
+//redireccionamos al usuario al login
   header("Location: ../../alumno/login.php");
  ?>
