@@ -1,4 +1,4 @@
-Plataforma de examenes en línea
+# Plataforma de examenes en línea
 
 Esta platafoma tiene como objetivo automatizar la aplicación de exámenes, donde tenemos 3 tipos de usuarios: administrador cuyo rol es autorizar las solicitudes de los profesores a la plataforma, profesor cuyo rol sera diseñar los exámenes y crear cuentas para sus estudiantes y finalmente el alumno cuyo acceso será proporcionado por su profesor y solo podra responder su respectiva evaluación.
 
